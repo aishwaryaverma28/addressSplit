@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Papa from 'papaparse'; // CSV parsing library
+import Papa from 'papaparse';
 
 const AddressSplitter = () => {
   const [file, setFile] = useState(null);
@@ -11,8 +11,6 @@ const AddressSplitter = () => {
 
     Papa.parse(selectedFile, {
       complete: (result) => {
-        console.log(result)
-        // Process CSV data and split addresses
         const newData = result.data.map((row) => {
             const addressParts = row[0].split(', ');  
             // Extract postcode from the last 6 digits of the last element
